@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+var port = process.env.PORT || 3000;
 
 const Wilayah = require('./controllers/wilayah')
 
@@ -13,5 +14,5 @@ app.get('/kabupaten', Wilayah.getKabupaten)
 app.get('/kecamatan', Wilayah.getKecamatan)
 app.get('/desa', Wilayah.getDesa)
 
-app.listen(3000, console.log('App run in port 3000 ...'))
+app.listen(port, console.log(`App run in port ${port} ...`))
 

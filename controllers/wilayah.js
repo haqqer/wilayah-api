@@ -103,17 +103,17 @@ exports.getKecamatan = (req, res) => {
 }
 
 exports.getDesa = (req, res) => {
-	let data = JSON.parse(fileJson('data/districts.json'))
+	let data = JSON.parse(fileJson('data/villages.json'))
     let id = req.query.id
-    let districs_id = req.query.districs_id
+    let district_id = req.query.district_id
     let name = req.query.name
     if(id != null) {
 		// Apabila id tidak null
 		result = Structure.Query('id', id, data)
     }
-    else if(regency_id != null) {
+    else if(district_id != null) {
 		// Apabila name tidak null
-		result = Structure.Query('districs_id', districs_id, data)
+		result = Structure.Query('district_id', district_id, data)
 	} 
 	else if(name != null) {
 		// Apabila name tidak null

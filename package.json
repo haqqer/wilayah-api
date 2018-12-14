@@ -7,7 +7,7 @@
     "dev": "nodemon app.js"
   },
   "author": "haqqer",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
     "express": "^4.16.4"
   },
