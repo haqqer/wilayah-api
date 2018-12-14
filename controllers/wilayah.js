@@ -9,6 +9,25 @@ function fileJson(param) {
 let Structure = require('./getStructure')
 
 // Controller untuk mengolah provinsi
+exports.getAll = (req, res) => {
+	let data = JSON.parse(fileJson('data/indonesia-region.min.json'))
+	let id = req.query.id
+	let name = req.query.name
+	if(id != null) {
+		// Apabila id tidak null
+		result = Structure.Query('id', id, data)
+	} 
+	else if(name != null) {
+		// Apabila name tidak null
+		result = Structure.Query('name', name, data)
+	}  
+	else {
+		// Apabila id dan name null
+		result = data
+	} 
+	res.json(result)
+}
+
 
 exports.getProvinsiFilter = (req, res) => {
 	let data = JSON.parse(fileJson('data/provinces.json'))
