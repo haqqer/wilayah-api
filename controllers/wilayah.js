@@ -13,6 +13,7 @@ exports.getAll = (req, res) => {
 	let data = JSON.parse(fileJson('data/indonesia-region.min.json'))
 	let id = req.query.id
 	let name = req.query.name
+	let result = ''
 	if(id != null) {
 		// Apabila id tidak null
 		result = Structure.Query('id', id, data)
@@ -89,6 +90,30 @@ exports.getKecamatan = (req, res) => {
     else if(regency_id != null) {
 		// Apabila name tidak null
 		result = Structure.Query('regency_id', regency_id, data)
+	} 
+	else if(name != null) {
+		// Apabila name tidak null
+		result = Structure.Query('name', name, data)
+	}  
+	else {
+		// Apabila id dan name null
+		result = data
+    } 
+    res.json(result)
+}
+
+exports.getDesa = (req, res) => {
+	let data = JSON.parse(fileJson('data/districts.json'))
+    let id = req.query.id
+    let districs_id = req.query.districs_id
+    let name = req.query.name
+    if(id != null) {
+		// Apabila id tidak null
+		result = Structure.Query('id', id, data)
+    }
+    else if(regency_id != null) {
+		// Apabila name tidak null
+		result = Structure.Query('districs_id', districs_id, data)
 	} 
 	else if(name != null) {
 		// Apabila name tidak null
