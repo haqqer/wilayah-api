@@ -1,6 +1,15 @@
 WILAYAH API
 ===================
 ### HOW TO USE
+Untuk melihat daftar provinsi 
+
+``` GET /provinsi ```
+
+Filter provinsi
+
+```GET /provinsi?id=11```
+
+```GET /provinsi?name=ACEH```
 
 ### Cara penginstalan :
 1. Pertama clone atau fork repository ini

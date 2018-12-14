@@ -11,5 +11,5 @@ app.get('/provinsi', Wilayah.getProvinsiFilter)
 app.get('/kabupaten', Wilayah.getKabupaten)
 app.get('/kecamatan', Wilayah.getKecamatan)
 
-app.listen(3000, () => console.log('App is run ....'))
+app.listen()
 

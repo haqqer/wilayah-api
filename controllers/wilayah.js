@@ -8,7 +8,7 @@ function fileJson(param) {
 //Function untuk mengolah struktur objects javascript
 let Structure = require('./getStructure')
 
-// Controller untuk menampilkan provinsi
+// Controller untuk mengolah provinsi
 
 exports.getProvinsiFilter = (req, res) => {
 	let data = JSON.parse(fileJson('data/provinces.json'))
@@ -28,9 +28,9 @@ exports.getProvinsiFilter = (req, res) => {
 		result = data
 	} 
 	res.json(result)
-}
+} 
 
-// Controller untuk menampilkan provinsi
+// Controller untuk mengolah Kabupaten
 
 exports.getKabupaten = (req, res) => {
     let data = JSON.parse(fileJson('data/regencies.json'))
@@ -56,7 +56,7 @@ exports.getKabupaten = (req, res) => {
     res.json(result)
 }
 
-// Controller untuk menampilkan kabupaten dan kota
+// Controller untuk mengolah kabupaten dan kota
 
 exports.getKecamatan = (req, res) => {
     let data = JSON.parse(fileJson('data/districts.json'))
