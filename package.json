@@ -1,0 +1,17 @@
+{
+  "name": "wilayah-ri",
+  "version": "1.0.0",
+  "description": "wilayah ri api",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "author": "haqqer",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.8"
+  }
+}
