@@ -104,6 +104,8 @@ exports.getKecamatan = (req, res) => {
     res.json(result)
 }
 
+// Controller untuk mengolah desa
+
 exports.getDesa = (req, res) => {
 	let data = JSON.parse(fileJson('data/villages.json'))
     let id = req.query.id

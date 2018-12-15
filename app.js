@@ -1,5 +1,7 @@
 const express = require('express')
 const app = express()
+app.use(cors())
+
 var port = process.env.PORT || 3000;
 
 const Wilayah = require('./controllers/wilayah')

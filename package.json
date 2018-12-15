@@ -4,7 +4,7 @@
   "description": "wilayah ri api",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "start": "nodemon app.js"
   },
   "author": "haqqer",
   "license": "ISC",
@@ -12,6 +12,8 @@
     "express": "^4.16.4"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
     "nodemon": "^1.18.8"
   }
 }

@@ -15,11 +15,23 @@ Untuk melihat daftar kabupaten
 
 ``` GET /kabupaten ```
 
-Filter provinsi
+Filter kabupaten
 
 ```GET /kabupaten?id=3325```
 
+```GET /kabupaten?province_id=33```
+
 ```GET /kabupaten?name=KABUPATEN BATANG```
+
+Untuk melihat daftar kecamatan
+
+``` GET /kecamatan ```
+
+Filter kecamatan
+
+```GET /kecamatan?id=3325```
+
+```GET /kecamatan?name=WARUNG ASEM```
 
 ### Cara penginstalan :
 1. Pertama clone atau fork repository ini
