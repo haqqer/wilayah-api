@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/wilayah', Wilayah.getAll)
-app.get('/provinsi', Wilayah.getProvinsiFilter)
+app.get('/provinsi', Wilayah.getProvinsi)
 app.get('/kabupaten', Wilayah.getKabupaten)
 app.get('/kecamatan', Wilayah.getKecamatan)
 app.get('/desa', Wilayah.getDesa)

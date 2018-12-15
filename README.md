@@ -11,6 +11,16 @@ Filter provinsi
 
 ```GET /provinsi?name=ACEH```
 
+Untuk melihat daftar kabupaten
+
+``` GET /kabupaten ```
+
+Filter provinsi
+
+```GET /kabupaten?id=3325```
+
+```GET /kabupaten?name=KABUPATEN BATANG```
+
 ### Cara penginstalan :
 1. Pertama clone atau fork repository ini
 2. ```git clone https://github.com/haqqer/wilayah-api```

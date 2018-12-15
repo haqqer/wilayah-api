@@ -7,20 +7,22 @@ function fileJson(param) {
 }
 //Function untuk mengolah struktur objects javascript
 let Structure = require('./getStructure')
+// variable default result
+let result = ''
+// status not found
+let not_found = {'status': 'not found'}
 
-// Controller untuk mengolah provinsi
 exports.getAll = (req, res) => {
 	let data = JSON.parse(fileJson('data/indonesia-region.min.json'))
 	let id = req.query.id
 	let name = req.query.name
-	let result = ''
 	if(id != null) {
 		// Apabila id tidak null
-		result = Structure.Query('id', id, data)
+		result = Structure.Query('id', id, data).length > 0 ? Structure.Query('id', id, data) : not_found
 	} 
 	else if(name != null) {
 		// Apabila name tidak null
-		result = Structure.Query('name', name, data)
+		result = Structure.Query('name', name, data).length > 0 ? Structure.Query('name', name, data) : not_found
 	}  
 	else {
 		// Apabila id dan name null
@@ -29,19 +31,19 @@ exports.getAll = (req, res) => {
 	res.json(result)
 }
 
+// Controller untuk mengolah Provinsi
 
-exports.getProvinsiFilter = (req, res) => {
+exports.getProvinsi = (req, res) => {
 	let data = JSON.parse(fileJson('data/provinces.json'))
 	let id = req.query.id
 	let name = req.query.name
-	let result = Structure.Query('id', 11, data)
 	if(id != null) {
 		// Apabila id tidak null
-		result = Structure.Query('id', id, data)
+		result = Structure.Query('id', id, data).length > 0 ? Structure.Query('id', id, data) : not_found
 	} 
 	else if(name != null) {
 		// Apabila name tidak null
-		result = Structure.Query('name', name, data)
+		result = Structure.Query('name', name, data).length > 0 ? Structure.Query('name', name, data) : not_found
 	}  
 	else {
 		// Apabila id dan name null
@@ -59,15 +61,15 @@ exports.getKabupaten = (req, res) => {
     let name = req.query.name
     if(id != null) {
 		// Apabila id tidak null
-		result = Structure.Query('id', id, data)
+		result = Structure.Query('id', id, data).length > 0 ? Structure.Query('id', id, data) : not_found
     }
     else if(province_id != null) {
 		// Apabila name tidak null
-		result = Structure.Query('province_id', province_id, data)
+		result = result ? Structure.Query('province_id', province_id, data) : not_found
 	} 
 	else if(name != null) {
 		// Apabila name tidak null
-		result = Structure.Query('name', name, data)
+		result = Structure.Query('name', name, data).length > 0 ? Structure.Query('name', name, data) : not_found
 	}  
 	else {
 		// Apabila id dan name null
@@ -85,15 +87,15 @@ exports.getKecamatan = (req, res) => {
     let name = req.query.name
     if(id != null) {
 		// Apabila id tidak null
-		result = Structure.Query('id', id, data)
+		result = Structure.Query('id', id, data).length > 0 ? Structure.Query('id', id, data) : not_found
     }
     else if(regency_id != null) {
 		// Apabila name tidak null
-		result = Structure.Query('regency_id', regency_id, data)
+		result = result ? Structure.Query('regency_id', regency_id, data) : not_found
 	} 
 	else if(name != null) {
 		// Apabila name tidak null
-		result = Structure.Query('name', name, data)
+		result = Structure.Query('name', name, data).length > 0 ? Structure.Query('name', name, data) : not_found
 	}  
 	else {
 		// Apabila id dan name null
@@ -109,15 +111,15 @@ exports.getDesa = (req, res) => {
     let name = req.query.name
     if(id != null) {
 		// Apabila id tidak null
-		result = Structure.Query('id', id, data)
+		result = Structure.Query('id', id, data).length > 0 ? Structure.Query('id', id, data) : not_found
     }
     else if(district_id != null) {
 		// Apabila name tidak null
-		result = Structure.Query('district_id', district_id, data)
+		result = result ? Structure.Query('district_id', district_id, data) : not_found
 	} 
 	else if(name != null) {
 		// Apabila name tidak null
-		result = Structure.Query('name', name, data)
+		result = Structure.Query('name', name, data).length > 0 ? Structure.Query('name', name, data) : not_found
 	}  
 	else {
 		// Apabila id dan name null
