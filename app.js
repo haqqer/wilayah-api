@@ -7,10 +7,15 @@ app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cors())
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 const db = require('./db');
 
 const port = process.env.PORT || 3000;
+const host = process.env.HOST || localhost;
 
 const Wilayah = require('./controllers/wilayah')
 const api = require('./api');
@@ -26,5 +31,5 @@ app.use('/api',api);
 // app.get('/kecamatan', Wilayah.getKecamatan)
 // app.get('/desa', Wilayah.getDesa)
 
-app.listen(port, console.log(`App run in port ${port} ...`))
+app.listen(port, host,console.log(`App run in port ${port} ...`))
 
