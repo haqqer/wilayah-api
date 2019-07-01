@@ -20,7 +20,7 @@ const host = process.env.HOST || localhost;
 const Wilayah = require('./controllers/wilayah')
 const api = require('./api');
 
-app.get('/', (req, res) => {
+app.get('/', (req, res, next) => {
     res.send({'status':'ok'})
 })
 // console.log(db);
