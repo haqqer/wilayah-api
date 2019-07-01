@@ -3,24 +3,31 @@ const response = require('../../utils/response');
 
 const findAll = async (req, res) => {
     try {
-        console.log('cek 1')
-        let options
+        const a = 'lowercase';
+        console.log(a.toUpperCase());
+        const limit = parseInt(req.query.limit) || 10;
+        let page;
+        if(req.query.page == 1) {
+            page = 0 * limit;
+        } else {
+            page = parseInt(req.query.page) * limit - 10 || 0;
+        }
         if(req.query.name) {
             options = {
                 where: {
-                    name: {
-                        $regex: '.*' + req.query.name.toUpperCase() + '.*'
-                    },
+                    nama: { 
+                        $regex: new RegExp(req.query.name, "i")
+                    }
                 },
-                limit: req.query.limit || 0
+                skip: page,
+                limit: limit
             }        
         } else {
             options = {
-                where: {},
-                limit: 0
+                skip: page,
+                limit: limit
             }
         }
-        console.log(options.where);
         const result = await service.findAll(options);
         if(result.length > 0) {
             return response.sendSuccess(res, 200, result);
