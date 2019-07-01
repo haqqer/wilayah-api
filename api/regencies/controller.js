@@ -1,7 +1,7 @@
 const service = require('./service');
 const response = require('../../utils/response');
 
-const findAll = async (req, res) => {
+const findAll = async (req, res, next) => {
     try {
         let options = {};
         // console.log(req.query);

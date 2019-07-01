@@ -15,7 +15,7 @@ const port = process.env.PORT || 3000;
 const Wilayah = require('./controllers/wilayah')
 const api = require('./api');
 
-app.get('/', (req, res) => {
+app.get('/', (req, res, next) => {
     res.send({'status':'ok'})
 })
 // console.log(db);

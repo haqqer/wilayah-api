@@ -1,7 +1,7 @@
 const service = require('./service');
 const response = require('../../utils/response');
 
-const findAll = async (req, res) => {
+const findAll = async (req, res, next) => {
     try {
         const a = 'lowercase';
         console.log(a.toUpperCase());
