@@ -31,6 +31,19 @@ const findAll = async (req, res,next) => {
     }
 }
 
+const findOne = async (req, res, next) => {
+    try {
+        let options = { where: {id: req.params.id}};
+        const result = await service.findAll(options);
+        if(result.length > 0) {
+            return response.sendSuccess(res, 200, result);
+        }
+        return response.sendSuccess(res, 200, 'Empty!');        
+    } catch (error) {
+        return response.sendError(res, 400, error);
+    }
+}
 module.exports = {
-    findAll
+    findAll,
+    findOne
 }
