@@ -12,9 +12,9 @@ const findAll = async (options) => {
 const findOne = async (options) => {
     try {
         console.log('findOne');
-        return await db.findOne(options.where);
+        return await db.findOne(options);
     } catch (error) {
-        
+        throw error;
     }
 }
 

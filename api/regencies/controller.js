@@ -53,12 +53,12 @@ const findAll = async (req, res, next) => {
 const findOne = async (req, res, next) => {
     try {
         console.log(req.params.id)
-        const result = await service.findOne({ id: req.params.id.toString() });
+        const result = await service.findOne({ id: req.params.id });
         console.log(result)
         if(result) {
             return response.sendSuccess(res, 200, result);
         }
-        return response.sendSuccess(res, 200, 'Empty!');        
+        return response.sendSuccess(res, 200, 'Not Found');        
     } catch (error) {
         return response.sendError(res, 400, error);
     }
