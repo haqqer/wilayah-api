@@ -9,6 +9,16 @@ const findAll = async (options) => {
     }
 }
 
+const findOne = async (options) => {
+    try {
+        console.log('findOne');
+        return await db.findOne(options.where);
+    } catch (error) {
+        
+    }
+}
+
 module.exports = {
-    findAll
+    findAll,
+    findOne
 }
