@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 //Set up default mongoose connection
-const mongoDB = 'mongodb://mongo:27017/fls-support';
+const mongoDB = 'mongodb://35.247.145.161:27017/fls-support';
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 
 //Get the default connection

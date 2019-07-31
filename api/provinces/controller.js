@@ -1,6 +1,6 @@
 const service = require('./service');
 const response = require('../../utils/response');
-const ObjectId = require('mongoose').Types.ObjectId;
+const { getCache, setCache } = require('../../utils/redis_cache');
 
 const findAll = async (req, res,next) => {
     try {
@@ -23,6 +23,10 @@ const findAll = async (req, res,next) => {
         }
         console.log(options.where);
         const result = await service.findAll(options);
+        if(await setCache('regencies', result)) {
+            const cachedResult = await getCache('regencies');
+            return response.sendSuccess(res, 200, cachedResult);
+        }
         if(result.length > 0) {
             return response.sendSuccess(res, 200, result);
         }

@@ -1,5 +1,6 @@
 const service = require('./service');
 const response = require('../../utils/response');
+const { getCache, setCache } = require('../../utils/redis_cache');
 
 const findAll = async (req, res, next) => {
     try {
@@ -41,6 +42,10 @@ const findAll = async (req, res, next) => {
         // console.log('hora')
         console.log('options : ',options);
         const result = await service.findAll(options);
+        if(await setCache('provinces', result)) {
+            const cachedResult = await getCache('provinces');
+            return response.sendSuccess(res, 200, cachedResult);
+        }        
         if(result.length > 0) {
             return response.sendSuccess(res, 200, result);
         }
